@@ -8,12 +8,6 @@ public class SudokuRow {
 
     private List<SudokuElement> sudokuRow = new ArrayList<>();
 
-    protected SudokuRow() {
-        for (int i = 0; i < 9; i++) {
-            sudokuRow.add(new SudokuElement());
-        }
-    }
-
     public List<SudokuElement> getSudokuRow() {
         return sudokuRow;
     }
@@ -24,4 +18,8 @@ public class SudokuRow {
                 .map(se -> se.toString())
                 .collect(Collectors.joining("", "", "|\n"));
     }
+    public SudokuElement getElement(int y) {
+        return sudokuRow.get(y);
+    }
+
 }
