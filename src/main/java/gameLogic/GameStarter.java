@@ -5,7 +5,7 @@ import table.SudokuElement;
 import table.SudokuRow;
 
 public class GameStarter {
-    ValuesSetter valuesSetter = new ValuesSetter();
+    private ValuesSetter valuesSetter = new ValuesSetter();
 
     public boolean startSudoku(SudokuBoard board) {
         System.out.println("Enter the cell values as shown: \nxyz\n\nx - row coordinate\ny - column coordinate\n" +

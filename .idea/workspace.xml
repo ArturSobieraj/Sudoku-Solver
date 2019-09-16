@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9894fa5a-c079-44e7-906a-aae241a3b04e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gameLogic/Backtrack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gameLogic/ValuesSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/table/Cloner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/gameLogic/SudokuSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/gameLogic/SudokuSolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/main/SudokuGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/main/SudokuGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/table/SudokuBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/table/SudokuBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/table/SudokuElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/table/SudokuElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/table/SudokuRow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/table/SudokuRow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLogic/SudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameLogic/SudokuSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/SudokuGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/SudokuGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/table/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/table/SudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/table/SudokuElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/table/SudokuElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/table/SudokuRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/table/SudokuRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -63,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="-85">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+            <state relative-caret-position="595">
+              <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,10 +173,10 @@
         <option value="$PROJECT_DIR$/src/main/java/gameLogic/Backtrack.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/SudokuGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/table/SudokuElement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java" />
         <option value="$PROJECT_DIR$/src/main/java/gameLogic/SudokuSolver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java" />
         <option value="$PROJECT_DIR$/src/main/java/gameLogic/ValuesSetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java" />
       </list>
     </option>
   </component>
@@ -334,16 +313,15 @@
       <workItem from="1568493559106" duration="3350000" />
       <workItem from="1568551111530" duration="182000" />
       <workItem from="1568551351961" duration="33610000" />
-      <workItem from="1568651830786" duration="14758000" />
+      <workItem from="1568651830786" duration="16533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51900000" />
+    <option name="totallyTimeSpent" value="53675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -465,6 +443,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/Backtrack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/table/SudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -516,8 +511,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/GameStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="-85">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -534,37 +529,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/SudokuSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="595">
+          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/Backtrack.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/Guesser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gameLogic/SudokuSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        <state relative-caret-position="289">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

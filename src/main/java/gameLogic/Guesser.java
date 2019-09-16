@@ -13,9 +13,7 @@ public class Guesser {
                     int arrayIndex = clonedBoard.getRow(i).getElement(j).getPossibleNumbers().size()-1;
                     backtrack = new Backtrack(i, j, clonedBoard.getRow(i).getElement(j).getPossibleNumbers().get(arrayIndex), clonedBoard);
                 }
-                break;
             }
-            break;
         }
         return backtrack;
     }
