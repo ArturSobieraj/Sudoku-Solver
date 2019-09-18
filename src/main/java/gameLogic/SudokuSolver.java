@@ -2,22 +2,23 @@ package gameLogic;
 
 import table.SudokuBoard;
 import table.SudokuElement;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class SudokuSolver {
-    private boolean isPossible;
-    private boolean actionPerformed;
     private List<Backtrack> backtracks = new ArrayList<>();
+    private int loopCounter = 0;
+    private int interLoopCounter = 0;
     private Guesser guesser = new Guesser();
+    private int backtrackIndex;
 
     public boolean solveSudoku(SudokuBoard board) {
         SudokuElement element;
+        boolean actionPerformed = true;
         boolean solutionFound = false;
         while (!solutionFound) {
-            do {
+            while (actionPerformed) {
                 actionPerformed = false;
                 for (int row = 0; row < 9; row++) {
                     for (int col = 0; col < 9; col++) {
@@ -26,73 +27,123 @@ public class SudokuSolver {
                         if (element.getValue().equals(SudokuElement.EMPTY)) {
                             for (int cand = 0; cand < element.getPossibleNumbers().size(); cand++) {
                                 candidate = element.getPossibleNumbers().get(cand);
-                                boolean isSafe = isSafe(board, row, col, candidate, element);
+                                element.getPossibleNumbers().remove(candidate);
+                                boolean isSafe = isSafe(board, row, col, candidate);
+                                boolean isPossible = isPossible(board, row, col, candidate);
+                                element.getPossibleNumbers().add(cand, candidate);
                                 if (isSafe) {
-                                    if (element.getPossibleNumbers().size() == 1 || isPossible) {
+                                    if (isPossible) {
                                         element.setValue(candidate);
+                                        element.getPossibleNumbers().clear();
                                         actionPerformed = true;
                                     }
+
+                                    if (element.getPossibleNumbers().size() == 1) {
+                                        element.setValue(element.getPossibleNumbers().get(element.getPossibleNumbers().size() - 1));
+                                        element.getPossibleNumbers().clear();
+                                        actionPerformed = true;
+                                    }
+
+                                } else {
+                                    element.getPossibleNumbers().remove(candidate);
+                                    actionPerformed = true;
                                 }
                             }
                         }
                     }
                 }
-            } while (actionPerformed);
+                interLoopCounter++;
+                System.out.println("Inter loop counter: " + interLoopCounter);
+            }
+
             if (isFullfiled(board)) {
                 System.out.println(board);
+                System.out.println("Number of loops:" + loopCounter);
                 solutionFound = true;
             } else {
                 System.out.println(board);
+                System.out.println("Number of loops: " + loopCounter);
+
                 if (backtracks.size() != 0) {
-                    board = backtracks.get(backtracks.size() - 1).getBoard();
-                    board.getSudokuBoard().get(backtracks.get(backtracks.size() - 1).getRowCoordinates()).getElement(backtracks.get(backtracks.size() - 1).getColCoordinates()).removeNumberFromList(backtracks.get(backtracks.size() - 1).getGuessedValue());
-                    backtracks.clear();
+                    board = backtracks.get(backtrackIndex).getBoard();
+                    int rowCoordinates = backtracks.get(backtrackIndex).getRowCoordinates();
+                    int colCoordinates = backtracks.get(backtrackIndex).getColCoordinates();
+                    String guessedValue = backtracks.get(backtrackIndex).getGuessedValue();
+                    board.getRow(rowCoordinates).getElement(colCoordinates).removeNumberFromList(guessedValue);
+                    backtracks.remove(backtrackIndex);
+                    actionPerformed = true;
+
+                    if (backtracks.size() != 0) {
+                        SudokuBoard clonedBoard = null;
+                        try {
+                            clonedBoard = board.deepCopy();
+                        } catch (CloneNotSupportedException e) {
+                            e.getMessage();
+                        }
+
+                        for (Backtrack backtrack : backtracks) {
+                            backtrack.setBoard(clonedBoard);
+                        }
+
+                        for (int i = 0; i < backtracks.size(); i++) {
+                            rowCoordinates = backtracks.get(i).getRowCoordinates();
+                            colCoordinates = backtracks.get(i).getColCoordinates();
+                            guessedValue = backtracks.get(i).getGuessedValue();
+                            Backtrack backtrack = backtracks.get(i);
+
+                            if (isSafe(board, rowCoordinates, colCoordinates, guessedValue)) {
+                                board.getRow(rowCoordinates).getElement(colCoordinates).setValue(guessedValue);
+                                board.getRow(rowCoordinates).getElement(colCoordinates).getPossibleNumbers().clear();
+                                backtrackIndex = backtracks.indexOf(backtrack);
+                            }
+                            break;
+                        }
+                        actionPerformed = true;
+                    }
                 }
-                SudokuBoard clonedBoard = null;
-                try {
-                    clonedBoard = board.deepCopy();
-                } catch (CloneNotSupportedException e) {
-                    e.getMessage();
+
+                if (backtracks.size() == 0) {
+                    SudokuBoard clonedBoard = null;
+                    try {
+                        clonedBoard = board.deepCopy();
+                    } catch (CloneNotSupportedException e) {
+                        e.getMessage();
+                    }
+                    backtracks = guesser.findCandidate(clonedBoard);
+
+                    for (int i = 0; i < backtracks.size(); i++) {
+                        int rowCoordinates = backtracks.get(i).getRowCoordinates();
+                        int colCoordinates = backtracks.get(i).getColCoordinates();
+                        String guessedValue = backtracks.get(i).getGuessedValue();
+                        Backtrack backtrack = backtracks.get(i);
+                        if (isSafe(board, rowCoordinates, colCoordinates, guessedValue)) {
+                            board.getRow(rowCoordinates).getElement(colCoordinates).setValue(guessedValue);
+                            board.getRow(rowCoordinates).getElement(colCoordinates).getPossibleNumbers().clear();
+                            backtrackIndex = backtracks.indexOf(backtrack);
+                        }
+                        break;
+                    }
+                    actionPerformed = true;
                 }
-                backtracks.add(guesser.findCandidate(clonedBoard));
-                board.getSudokuBoard().get(backtracks.get(backtracks.size() - 1).getRowCoordinates()).getElement(backtracks.get(backtracks.size() - 1).getColCoordinates()).setValue(backtracks.get(backtracks.size() - 1).getGuessedValue());
-                actionPerformed = true;
             }
+            loopCounter++;
         }
         return true;
     }
 
-    public boolean isSafe(SudokuBoard board, int row, int col, String candidate, SudokuElement element) {
-        actionPerformed = false;
-        isPossible = true;
+    private boolean isSafe(SudokuBoard board, int row, int col, String candidate) {
+
         boolean isSafe = true;
         //row clash
         for (int i = 0; i < 9; i++) {
             if (board.getRow(row).getElement(i).getValue().equals(candidate)) {
                 isSafe = false;
             }
-
-            if (!(board.getRow(row).getElement(i).getValue().equals(SudokuElement.EMPTY)) && element.getPossibleNumbers().contains(board.getRow(row).getElement(i).getValue())) {
-                element.removeNumberFromList(board.getRow(row).getElement(i).getValue());
-                actionPerformed = true;
-            }
-
-            if (board.getRow(row).getElement(i).getPossibleNumbers().contains(candidate)) {
-                isPossible = false;
-            }
         }
         //column clash
         for (int i = 0; i < 9; i++) {
             if (board.getRow(i).getElement(col).getValue().equals(candidate)) {
                 isSafe = false;
-            }
-            if (!(board.getRow(i).getElement(col).getValue().equals(SudokuElement.EMPTY)) && element.getPossibleNumbers().contains(board.getRow(i).getElement(col).getValue())) {
-                element.removeNumberFromList(board.getRow(i).getElement(col).getValue());
-                actionPerformed = true;
-            }
-
-            if (board.getRow(i).getElement(col).getPossibleNumbers().contains(candidate)) {
-                isPossible = false;
             }
         }
         //square clash
@@ -105,18 +156,36 @@ public class SudokuSolver {
                 if (board.getRow(r).getElement(c).getValue().equals(candidate)) {
                     isSafe = false;
                 }
-                if (!(board.getRow(r).getElement(c).getValue().equals(SudokuElement.EMPTY)) && element.getPossibleNumbers().contains(board.getRow(r).getElement(c).getValue())) {
-                    element.removeNumberFromList(board.getRow(r).getElement(c).getValue());
-                    actionPerformed = true;
-                }
-
-                if (board.getRow(r).getElement(c).getPossibleNumbers().contains(candidate)) {
-                    isPossible = false;
-                }
             }
         }
         return isSafe;
+    }
 
+    private boolean isPossible(SudokuBoard board, int row, int col, String candidate) {
+
+        boolean isPossible = true;
+        for (int i = 0; i < 9; i++) {
+            if (board.getRow(row).getElement(i).getPossibleNumbers().contains(candidate)) {
+                isPossible = false;
+            }
+
+            if (board.getRow(i).getElement(col).getPossibleNumbers().contains(candidate)) {
+                isPossible = false;
+            }
+
+            int sqrt = (int) Math.sqrt(9);
+            int boxRowStart = row - row % sqrt;
+            int boxColStart = col - col % sqrt;
+
+            for (int r = boxRowStart; r < boxRowStart + sqrt; r++) {
+                for (int c = boxColStart; c < boxColStart + sqrt; c++) {
+                    if (board.getRow(r).getElement(c).getPossibleNumbers().contains(candidate)) {
+                        isPossible = false;
+                    }
+                }
+            }
+        }
+        return isPossible;
     }
 
     private boolean isFullfiled(SudokuBoard board) {

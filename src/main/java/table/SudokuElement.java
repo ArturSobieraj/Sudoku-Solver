@@ -30,6 +30,6 @@ public class SudokuElement {
         this.value = value;
     }
     public String toString() {
-        return "|" + (value.equals(EMPTY) ? " ":value);
+        return "|" + (value.equals(EMPTY) ? " " : value);
     }
 }
